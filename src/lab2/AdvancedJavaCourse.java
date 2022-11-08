@@ -8,22 +8,27 @@ import javax.swing.*;
  * @author your name goes here
  * @version 1.00
  */
-public class AdvancedJavaCourse {
+public class AdvancedJavaCourse implements Course {
 
     private String courseName;
     private String courseNumber;
     private double credits;
+
     private String prerequisites;
 
     public AdvancedJavaCourse(String courseName, String courseNumber) {
-        this.setCourseName(courseName);
-        this.setCourseNumber(courseNumber);
+        setCourseName(courseName);
+        setCourseNumber(courseNumber);
     }
 
-    public String getCourseName() {
-        return courseName;
+    //GETTERS
+    public final String getCourseName(){ return courseName; }
+    public final String getCourseNumber(){ return courseNumber; }
+    public final double getCredits() {
+        return credits;
     }
 
+    //SETTERS
     public final void setCourseName(String courseName) {
         if (courseName == null || courseName.length() == 0) {
             JOptionPane.showMessageDialog(null,
@@ -31,10 +36,6 @@ public class AdvancedJavaCourse {
             System.exit(0);
         }
         this.courseName = courseName;
-    }
-
-    public String getCourseNumber() {
-        return courseNumber;
     }
 
     public final void setCourseNumber(String courseNumber) {
@@ -46,11 +47,7 @@ public class AdvancedJavaCourse {
         this.courseNumber = courseNumber;
     }
 
-    public double getCredits() {
-        return credits;
-    }
-
-    public void setCredits(double credits) {
+    public final void setCredits(double credits) {
         if (credits < 0.5 || credits > 4.0) {
             JOptionPane.showMessageDialog(null,
                     "Error: credits must be in the range 0.5 to 4.0");
@@ -71,5 +68,4 @@ public class AdvancedJavaCourse {
         }
         this.prerequisites = prerequisites;
     }
-
 }
